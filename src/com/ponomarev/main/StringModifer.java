@@ -8,7 +8,6 @@ public class StringModifer {
         final String SPACE = " ";
         StringJoiner joiner = new StringJoiner(SPACE);
         String[] splittedSentence = data.split(SPACE);
-        String[] result = new String[splittedSentence.length];
         
         for (int i = 0; i < splittedSentence.length; i++) {
             char[] word = getWordByIndex(splittedSentence, i);
