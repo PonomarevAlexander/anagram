@@ -4,8 +4,12 @@ import java.util.StringJoiner;
 
 public class StringModifer {
     
-    public String reverseString (String data) {
-        final String SPACE = " ";
+    private static final String SPACE = " ";
+    
+    public String reverseString (String data) { 
+       if (data == null) {
+           throw new IllegalArgumentException("Wrong argument, NULL aren't allowed!!!");
+       }
         StringJoiner joiner = new StringJoiner(SPACE);
         String[] splittedSentence = data.split(SPACE);
         
