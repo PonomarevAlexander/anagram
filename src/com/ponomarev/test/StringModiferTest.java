@@ -28,7 +28,7 @@ public class StringModiferTest {
     private static final String LETTERS_AND_DIGITS_AND_SPEC_SYMBOLS_REVERSED = "#y1t@r2ew%^^&3q 4hg5%*fd6&*sa 7n*(bv8cx9**0z";
     private static final String EMPTY_STRING = "";
     private static final String EMPTY_STRING_REVERSED = "";
-    private static final String NULL_EXEPTION_MESSEGE = "Wrong argument, NULL aren't allowed!!!";
+    private static final String NULL_EXCEPTION_MESSEGE = "Wrong argument, NULL aren't allowed!!!";
     
     @Before
     public void initObject() {
@@ -37,84 +37,56 @@ public class StringModiferTest {
     
     @Test
     public void toReverseStringConsistingOfNullTest() {
-        try {
-            String source = sm.reverseString(null);
-            fail("Expected exception wasn't thrown");
-        }
-        catch (IllegalArgumentException ex){
-            assertEquals(NULL_EXEPTION_MESSEGE, ex.getMessage());
-        } 
+        Throwable exception = assertThrows(IllegalArgumentException.class, 
+                () -> {sm.reverseString(null);});
+        assertEquals(NULL_EXCEPTION_MESSEGE, exception.getMessage());
     }
     
     @Test
     public void toReverseStringConsistingOfEmptyStringTest() {
-        String source = EMPTY_STRING;
-        String expected = EMPTY_STRING_REVERSED;
-        
-        String actual = sm.reverseString(source);
-        assertEquals(expected, actual);
+        String actual = sm.reverseString(EMPTY_STRING);
+        assertEquals(EMPTY_STRING_REVERSED, actual);
     }
     
     @Test
     public void toReverseStringConsistingOfLettersOnlyTest() {
-        String source = ONLY_LETTER;
-        String expected = ONLY_LETTER_REVERSED;
-        
-        String actual = sm.reverseString(source);
-        assertEquals(expected, actual);
+        String actual = sm.reverseString(ONLY_LETTER);
+        assertEquals(ONLY_LETTER_REVERSED, actual);
     }
     
     @Test
     public void toReverseStringConsistingOfDigitsOnlyTest() {
-        String source = ONLY_DIGITS;
-        String expected = ONLY_DIGITS_REVERSED;
-        
-        String actual = sm.reverseString(source);
-        assertEquals(expected, actual);
+        String actual = sm.reverseString(ONLY_DIGITS);
+        assertEquals(ONLY_DIGITS_REVERSED, actual);
     }
     
     @Test
     public void toReverseStringConsistingOfSpecSymbolsOnlyTest() {
-        String source = ONLY_SPEC_SYMBOLS;
-        String expected = ONLY_SPEC_SYMBOLS_REVERSED;
-        
-        String actual = sm.reverseString(source);
-        assertEquals(expected, actual);
+        String actual = sm.reverseString(ONLY_SPEC_SYMBOLS);
+        assertEquals(ONLY_SPEC_SYMBOLS_REVERSED, actual);
     }
     
     @Test
     public void toReverseStringConsistingOfLettersAndDigitsTest() {
-        String source = LETTERS_AND_DIGITS;
-        String expected = LETTERS_AND_DIGITS_REVERSED;
-        
-        String actual = sm.reverseString(source);
-        assertEquals(expected, actual);
+        String actual = sm.reverseString(LETTERS_AND_DIGITS);
+        assertEquals(LETTERS_AND_DIGITS_REVERSED, actual);
     }
     
     @Test
     public void toReverseStringConsistingOfLettersAndSpecSymbolsTest() {
-        String source = LETTERS_AND_SPEC_SYMBOLS;
-        String expected = LETTERS_AND_SPEC_SYMBOLS_REVERSED;
-        
-        String actual = sm.reverseString(source);
-        assertEquals(expected, actual);
+        String actual = sm.reverseString(LETTERS_AND_SPEC_SYMBOLS);
+        assertEquals(LETTERS_AND_SPEC_SYMBOLS_REVERSED, actual);
     }
     
     @Test
     public void toReverseStringConsistingOfDigitsAndSpecSymbolsTest() {
-        String source = DIGITS_AND_SPEC_SYMBOLS;
-        String expected = DIGITS_AND_SPEC_SYMBOLS_REVERSED;
-        
-        String actual = sm.reverseString(source);
-        assertEquals(expected, actual);
+        String actual = sm.reverseString(DIGITS_AND_SPEC_SYMBOLS);
+        assertEquals(DIGITS_AND_SPEC_SYMBOLS_REVERSED, actual);
     }
     
     @Test
     public void toReverseStringConsistingLettersAndDigitsAndSpecSymbolsTest() {
-        String source = LETTERS_AND_DIGITS_AND_SPEC_SYMBOLS;
-        String expected = LETTERS_AND_DIGITS_AND_SPEC_SYMBOLS_REVERSED;
-        
-        String actual = sm.reverseString(source);
-        assertEquals(expected, actual);
+        String actual = sm.reverseString(LETTERS_AND_DIGITS_AND_SPEC_SYMBOLS);
+        assertEquals(LETTERS_AND_DIGITS_AND_SPEC_SYMBOLS_REVERSED, actual);
     }
 }
